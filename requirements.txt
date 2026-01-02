@@ -1,0 +1,15 @@
+# AI & Computer Vision
+torch
+torchvision
+opencv-python
+pillow
+
+# API & Web UI
+fastapi
+uvicorn
+streamlit
+python-multipart
+
+# Utilities
+numpy
+requests
