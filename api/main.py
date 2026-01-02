@@ -1,3 +1,5 @@
+# Run the api by doing unicorn main:app --reload
+
 from fastapi import FastAPI, UploadFile, File
 import torch
 import torch.nn.functional as F

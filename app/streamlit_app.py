@@ -1,3 +1,5 @@
+# Run the app bu doing: streamlit run streamlit_app.py
+
 import streamlit as st
 import requests
 from PIL import Image
