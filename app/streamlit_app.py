@@ -4,6 +4,18 @@ import streamlit as st
 import requests
 from PIL import Image
 import torch
+import sys
+import os
+
+# Get the directory of the current script (app/)
+current_dir = os.path.dirname(os.path.abspath(__file__))
+# Get the parent directory (QualityLens/)
+parent_dir = os.path.dirname(current_dir)
+# Add the parent directory to sys.path so it can see 'src'
+if parent_dir not in sys.path:
+    sys.path.append(parent_dir)
+
+# NOW you can import src
 from src.model import get_model
 
 model = get_model(num_classes=2)
