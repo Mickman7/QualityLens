@@ -3,6 +3,12 @@
 import streamlit as st
 import requests
 from PIL import Image
+import torch
+from src.model import get_model
+
+model = get_model(num_classes=2)
+model.load_state_dict(torch.load("models/best_model.pth", map_location="cpu"))
+model.eval()
 
 st.title("QualityLens: Fruit Freshness Detector")
 st.write("Upload a photo of a fruit to check its quality.")
