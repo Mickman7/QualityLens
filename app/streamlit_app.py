@@ -7,20 +7,18 @@ import torch
 import sys
 import os
 
-# Get the directory of the current script (app/)
-current_dir = os.path.dirname(os.path.abspath(__file__))
-# Get the parent directory (QualityLens/)
-parent_dir = os.path.dirname(current_dir)
-# Add the parent directory to sys.path so it can see 'src'
-if parent_dir not in sys.path:
-    sys.path.append(parent_dir)
+# 1. Get the path of the directory where THIS script lives (QualityLens/app/)
+base_dir = os.path.dirname(os.path.abspath(__file__))
 
-# NOW you can import src
-from src.model import get_model
+# 2. Go up one level to the project root and then into the models folder
+# This creates an absolute path: /Users/mickman/.../QualityLens/models/best_model.pth
+model_path = os.path.join(base_dir, "..", "models", "best_model.pth")
 
+# 3. Load the model using that exact path
 model = get_model(num_classes=2)
-model.load_state_dict(torch.load("models/best_model.pth", map_location="cpu"))
+model.load_state_dict(torch.load(model_path, map_location="cpu"))
 model.eval()
+
 
 st.title("QualityLens: Fruit Freshness Detector")
 st.write("Upload a photo of a fruit to check its quality.")
