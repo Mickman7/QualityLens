@@ -79,6 +79,7 @@ if 'page' not in st.session_state:
 
 def change_page(page_name):
     st.session_state.page = page_name
+    st.rerun()
 
 @st.cache_resource
 def load_my_model():
